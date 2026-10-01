@@ -35,7 +35,7 @@ export default function AdminSurveiPage() {
               Hasil & Analisis Survei Pengunjung
             </h1>
             <p className="text-xs sm:text-sm text-zinc-500 mt-1">
-              Rekapitulasi respon 10 indikator kepuasan publik terhadap portal informasi Diskominfo Indramayu.
+              Rekapitulasi respon 10 indikator kepuasan publik terhadap portal informasi Indramayu News Center.
             </p>
           </div>
         </div>

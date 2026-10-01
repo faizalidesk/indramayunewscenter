@@ -2,16 +2,16 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'INC PORTAL — Indramayu News Center | Diskominfo',
+  title: 'Indramayu News Center — Portal Berita Resmi & Terpercaya',
   description:
-    'Portal Publikasi Berita Resmi, Agenda Pembangunan, dan Survei Pelayanan Informasi Publik Diskominfo Kabupaten Indramayu.',
+    'Portal Publikasi Berita Resmi, Agenda Pembangunan, dan Survei Pelayanan Informasi Publik Indramayu News Center.',
   keywords: [
+    'Indramayu News Center',
+    'INC Portal',
     'Indramayu',
-    'Diskominfo',
     'Berita Indramayu',
     'Portal Berita',
-    'Smart City',
-    'Pelayanan Publik',
+    'Informasi Publik',
   ],
 };
 
@@ -23,9 +23,9 @@ export default function RootLayout({
   return (
     <html lang="id" className="h-full antialiased scroll-smooth">
       <head>
-        <link rel="icon" href="/images/logo3.png" />
+        <link rel="icon" href="/images/logo.png" />
       </head>
-      <body className="min-h-full flex flex-col bg-slate-50 text-slate-900 selection:bg-blue-600 selection:text-white">
+      <body className="min-h-full flex flex-col bg-zinc-50 text-zinc-950 selection:bg-black selection:text-white">
         {children}
       </body>
     </html>

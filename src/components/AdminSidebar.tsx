@@ -46,7 +46,7 @@ export const AdminSidebar: React.FC = () => {
                 PRO
               </span>
             </div>
-            <p className="text-[11px] text-zinc-400 font-medium">Diskominfo Indramayu</p>
+            <p className="text-[11px] text-zinc-400 font-medium">Indramayu News Center</p>
           </div>
         </div>
 

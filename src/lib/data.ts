@@ -3,16 +3,16 @@ import { Berita, Komentar, SurveiPengunjung } from '@/types';
 export const INITIAL_BERITA: Berita[] = [
   {
     id: 77,
-    instansi: 'Dinas Komunikasi dan Informatika',
+    instansi: 'Indramayu News Center',
     pembuat: 'Faiz Ali',
     judul: 'Berkat Bank Sampah, Murid Di Kecamatan Lelea Peroleh Cuan',
-    isi: `DISKOMINFO INDRAMAYU — Upaya penanganan permasalahan sampah sepatutnya menjadi persoalan bersama. Sampah jika tidak dikelola dengan baik akan menimbulkan dampak buruk terhadap lingkungan seperti kawasan permukiman menjadi kumuh hingga berpotensi menyebabkan terjadinya bencana alam.
+    isi: `INDRAMAYU NEWS CENTER — Upaya penanganan permasalahan sampah sepatutnya menjadi persoalan bersama. Sampah jika tidak dikelola dengan baik akan menimbulkan dampak buruk terhadap lingkungan seperti kawasan permukiman menjadi kumuh hingga berpotensi menyebabkan terjadinya bencana alam.
 
 Namun jika penanganan masalah sampah dilakukan dengan bersama-sama, maka akan berimbas pula terhadap kehidupan masyarakat itu sendiri baik lingkungan menjadi bersih sampai bisa mendapatkan keuntungan dari hasil pengelolaan sampah yang baik dan benar.
 
 Hal itulah yang kemudian dilakukan Camat Lelea Kabupaten Indramayu, Tanti Widyasari untuk menangani sampah di wilayahnya. Tanti membentuk Bank Sampah dan berkerjasama dengan sejumlah sekolah di masing-masing wilayah Kecamatan Lelea Kabupaten Indramayu.
 
-Dijelaskan Tanti Widyasari kepada Diskominfo Indramayu, sejumlah siswa sekolah di Kecamatan Lelea diajak untuk bagaimana bisa memilah sampah yang bernilai ekonomis, untuk kemudian disetorkan melalui Bank Sampah yang dikelola oleh Pramuka di sekolah masing-masing dan sudah bekerjasama dengan sejumlah pengepul sampah.
+Dijelaskan Tanti Widyasari kepada Indramayu News Center, sejumlah siswa sekolah di Kecamatan Lelea diajak untuk bagaimana bisa memilah sampah yang bernilai ekonomis, untuk kemudian disetorkan melalui Bank Sampah yang dikelola oleh Pramuka di sekolah masing-masing dan sudah bekerjasama dengan sejumlah pengepul sampah.
 
 "Murid-murid kita ini bisa mengumpulkan sampah seperti botol minuman plastik dan lainnya yang bernilai ekonomis. Nanti sistemnya 60% untuk pihak sekolah dan 40% untuk murid atau sebaliknya juga bisa. Sehingga anak-anak ini selain dapat uang jajan tambahan juga bisa masuk ke buku tabungan sekolah," ujar Tanti di ruang kerjanya Selasa (8/2/2022).
 
@@ -26,10 +26,10 @@ Disamping itu, pihaknya juga sudah membentuk Satuan Tugas (Satgas) Kebersihan ya
   },
   {
     id: 78,
-    instansi: 'Dinas Komunikasi dan Informatika',
+    instansi: 'Indramayu News Center',
     pembuat: 'Faiz Ali',
-    judul: 'Kominfo Evaluasi Kabupaten/Kota Berlabel Smart City',
-    isi: `DISKOMINFO INDRAMAYU — Kementerian Komunikasi dan Informatika RI mengevaluasi gerakan smart city yang telah berjalan di 75 Kota dan Kabupaten termasuk Kabupaten Indramayu. Acara yang berlangsung di Hotel Aston Banyuwangi itu digelar selama tiga hari dengan menghadirkan empat tim evaluator yang melakukan wawancara pada perwakilan masing-masing daerah berlabel smart city. Tim Evaluator terdiri dari beberapa Kementerian dan Lembaga, Akademisi, dan Pelaku Industri Teknologi Informasi.
+    judul: 'Evaluasi Perkembangan Inovasi & Transformasi Digital Daerah Berlabel Smart City',
+    isi: `INDRAMAYU NEWS CENTER — Kementerian Komunikasi dan Informatika RI mengevaluasi gerakan smart city yang telah berjalan di 75 Kota dan Kabupaten termasuk Kabupaten Indramayu. Acara yang berlangsung di Hotel Aston Banyuwangi itu digelar selama tiga hari dengan menghadirkan empat tim evaluator yang melakukan wawancara pada perwakilan masing-masing daerah berlabel smart city. Tim Evaluator terdiri dari beberapa Kementerian dan Lembaga, Akademisi, dan Pelaku Industri Teknologi Informasi.
 
 Indikator penilaian di antaranya Smart Branding, Smart Mobility, dan Smart Environment. Dalam sambutannya, Kasubdit Layanan Aplikasi Informatika Pemerintahan Daerah Kemenkominfo RI Hasyim Gautama mengatakan, sasaran evaluasi adalah 75 Kabupaten dan Kota yang masuk gerakan smart city.
 
@@ -46,7 +46,7 @@ Dia menjelaskan, tujuan utama gerakan smart city adalah pola pikir untuk memuncu
     instansi: 'Dinas Pariwisata dan Kebudayaan',
     pembuat: 'Faiz Ali',
     judul: 'Pesona Seni Tari Tradisional Indramayu Memukau Panggung Budaya Jawa Barat',
-    isi: `INDRAMAYU — Keragaman budaya dan seni tradisional Kabupaten Indramayu kembali menarik perhatian masyarakat luas. Pagelaran Tari Topeng Indramayu dan seni Ronggeng Ketuk yang ditampilkan oleh sanggar seni binaan daerah memukau ratusan penonton dalam festival seni budaya tahunan.
+    isi: `INDRAMAYU NEWS CENTER — Keragaman budaya dan seni tradisional Kabupaten Indramayu kembali menarik perhatian masyarakat luas. Pagelaran Tari Topeng Indramayu dan seni Ronggeng Ketuk yang ditampilkan oleh sanggar seni binaan daerah memukau ratusan penonton dalam festival seni budaya tahunan.
 
 Kepala Dinas Pariwisata menyampaikan bahwa penguatan kebudayaan lokal terus didorong melalui regenerasi penari muda serta pementasan rutin di ruang-ruang publik. Upaya ini ditujukan agar identitas kearifan lokal tetap hidup dan menjadi daya tarik pariwisata unggulan daerah.`,
     kategori: 'Sosial',
@@ -61,7 +61,7 @@ Kepala Dinas Pariwisata menyampaikan bahwa penguatan kebudayaan lokal terus dido
     instansi: 'Dinas Kesehatan Kabupaten Indramayu',
     pembuat: 'Faiz Ali',
     judul: 'Pencanangan Gerakan Hidup Sehat dan Vaksinasi Terpadu di Seluruh Puskesmas',
-    isi: `INDRAMAYU — Dinas Kesehatan Kabupaten Indramayu meluncurkan program Gerakan Masyarakat Hidup Sehat (GERMAS) yang dibarengi dengan layanan cek kesehatan berkala serta imunisasi terpadu gratis bagi keluarga di 49 Puskesmas se-Kabupaten.
+    isi: `INDRAMAYU NEWS CENTER — Dinas Kesehatan Kabupaten Indramayu meluncurkan program Gerakan Masyarakat Hidup Sehat (GERMAS) yang dibarengi dengan layanan cek kesehatan berkala serta imunisasi terpadu gratis bagi keluarga di 49 Puskesmas se-Kabupaten.
 
 Langkah preventif ini difokuskan pada deteksi dini penyakit tidak menular (PTM), peningkatan gizi balita untuk pencegahan stunting, serta edukasi sanitasi lingkungan sehat bagi masyarakat pesisir dan pedesaan.`,
     kategori: 'Kesehatan',
@@ -74,9 +74,9 @@ Langkah preventif ini difokuskan pada deteksi dini penyakit tidak menular (PTM),
   {
     id: 74,
     instansi: 'Pemerintah Kabupaten Indramayu',
-    pembuat: 'Admin Diskominfo',
+    pembuat: 'Redaksi Indramayu News Center',
     judul: 'Digitalisasi Pelayanan Publik: Akses Administrasi Kependudukan Cepat dan Transparan',
-    isi: `INDRAMAYU — Transformasi digital di lingkungan Pemkab Indramayu semakin dimatangkan dengan penyediaan sistem administrasi kependudukan online terintegrasi. Masyarakat kini dapat mengurus dokumen kependudukan seperti KTP elektronik, Kartu Keluarga, dan Akta Kelahiran melalui aplikasi terpadu tanpa antre panjang di kantor dinas.
+    isi: `INDRAMAYU NEWS CENTER — Transformasi digital di lingkungan Pemkab Indramayu semakin dimatangkan dengan penyediaan sistem administrasi kependudukan online terintegrasi. Masyarakat kini dapat mengurus dokumen kependudukan seperti KTP elektronik, Kartu Keluarga, dan Akta Kelahiran melalui aplikasi terpadu tanpa antre panjang di kantor dinas.
 
 Bupati Indramayu menegaskan bahwa birokrasi yang cepat, ramah, dan bebas pungli adalah komitmen utama dalam memberikan pelayanan prima bagi seluruh warga.`,
     kategori: 'Pemerintahan',
@@ -89,9 +89,9 @@ Bupati Indramayu menegaskan bahwa birokrasi yang cepat, ramah, dan bebas pungli 
   {
     id: 73,
     instansi: 'Dinas Koperasi dan UMKM',
-    pembuat: 'Admin Diskominfo',
+    pembuat: 'Redaksi Indramayu News Center',
     judul: 'Pemberdayaan UMKM Lokal Melalui Pelatihan Pemasaran Digital dan Sertifikasi Halal',
-    isi: `INDRAMAYU — Ratusan pelaku Usaha Mikro, Kecil, dan Menengah (UMKM) di Kabupaten Indramayu mengikuti pelatihan intensif mengenai strategi pemasaran e-commerce, fotografi produk, serta pendampingan sertifikasi halal gratis yang difasilitasi oleh dinas terkait.
+    isi: `INDRAMAYU NEWS CENTER — Ratusan pelaku Usaha Mikro, Kecil, dan Menengah (UMKM) di Kabupaten Indramayu mengikuti pelatihan intensif mengenai strategi pemasaran e-commerce, fotografi produk, serta pendampingan sertifikasi halal gratis yang difasilitasi oleh dinas terkait.
 
 Diharapkan produk unggulan seperti olahan mangga gedong gincu, kerupuk ikan, dan batik Paoman dapat menembus pasar nasional hingga mancanegara melalui ekosistem digital.`,
     kategori: 'Layanan Publik',

@@ -62,8 +62,8 @@ export const HeroFeatured: React.FC<HeroFeaturedProps> = ({ featured, trending }
                   {featured.pembuat ? featured.pembuat.charAt(0) : 'R'}
                 </div>
                 <div>
-                  <p className="font-bold text-white">{featured.pembuat || 'Redaksi Diskominfo'}</p>
-                  <p className="text-[11px] text-zinc-400">{featured.instansi}</p>
+                  <p className="font-bold text-white">{featured.pembuat || 'Redaksi Indramayu News Center'}</p>
+                  <p className="text-[11px] text-zinc-400">{featured.instansi || 'Indramayu News Center'}</p>
                 </div>
               </div>
 

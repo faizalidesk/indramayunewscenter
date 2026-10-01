@@ -149,10 +149,10 @@ export default function BeritaDetailPage() {
                     {berita.pembuat ? berita.pembuat.charAt(0) : 'A'}
                   </div>
                   <div>
-                    <p className="font-bold text-black">{berita.pembuat || 'Admin Diskominfo'}</p>
+                    <p className="font-bold text-black">{berita.pembuat || 'Redaksi Indramayu News Center'}</p>
                     <p className="text-zinc-400 flex items-center gap-1 font-medium text-[11px]">
                       <Building2 className="w-3 h-3 text-zinc-400" />
-                      {berita.instansi}
+                      {berita.instansi || 'Indramayu News Center'}
                     </p>
                   </div>
                 </div>
@@ -205,7 +205,7 @@ export default function BeritaDetailPage() {
                   #Indramayu
                 </span>
                 <span className="px-2.5 py-1 bg-zinc-100 border border-zinc-200 rounded-lg text-zinc-800 font-semibold">
-                  #Diskominfo
+                  #IndramayuNewsCenter
                 </span>
               </div>
             </div>

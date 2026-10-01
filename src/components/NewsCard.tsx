@@ -141,7 +141,7 @@ export const NewsCard: React.FC<NewsCardProps> = ({ news, layout = 'grid' }) => 
       <div className="p-5 pt-0">
         <div className="pt-3.5 border-t border-zinc-100 flex items-center justify-between text-xs">
           <span className="text-zinc-500 font-medium truncate max-w-[140px]">
-            {news.instansi || 'Diskominfo'}
+            {news.instansi || 'Indramayu News Center'}
           </span>
           <Link
             href={`/berita/${news.id}`}

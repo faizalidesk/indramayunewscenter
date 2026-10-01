@@ -17,7 +17,7 @@ import {
 export default function TambahBeritaPage() {
   const router = useRouter();
 
-  const [instansi, setInstansi] = useState('Dinas Komunikasi dan Informatika');
+  const [instansi, setInstansi] = useState('Indramayu News Center');
   const [pembuat, setPembuat] = useState('Faiz Ali');
   const [judul, setJudul] = useState('');
   const [kategori, setKategori] = useState('Teknologi');
@@ -101,7 +101,7 @@ export default function TambahBeritaPage() {
               Tulis & Terbitkan Berita Baru
             </h1>
             <p className="text-xs text-zinc-500 mt-1">
-              Lengkapi informasi artikel berikut untuk ditayangkan pada portal publik Diskominfo.
+              Lengkapi informasi artikel berikut untuk ditayangkan pada portal publik Indramayu News Center.
             </p>
           </div>
 

@@ -42,7 +42,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onSearch, searchQuery = '' }) =>
               Warta Resmi
             </span>
             <span className="truncate text-zinc-300 text-xs">
-              Portal Berita Resmi Diskominfo Kabupaten Indramayu — Cepat, Akurat, dan Terpercaya
+              Portal Berita Resmi Indramayu News Center — Cepat, Akurat, dan Terpercaya
             </span>
           </div>
           <div className="hidden md:flex items-center gap-4 text-zinc-400 text-xs font-mono">
@@ -76,7 +76,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onSearch, searchQuery = '' }) =>
                 </span>
               </div>
               <span className="text-[11px] text-zinc-500 font-medium">
-                Indramayu News Center • Diskominfo
+                Indramayu News Center
               </span>
             </div>
           </Link>

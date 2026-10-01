@@ -22,11 +22,11 @@ export const Footer: React.FC = () => {
               </div>
               <div>
                 <h3 className="text-white font-extrabold text-base tracking-wide">INC PORTAL</h3>
-                <p className="text-xs text-zinc-400 font-medium">Diskominfo Kab. Indramayu</p>
+                <p className="text-xs text-zinc-400 font-medium">Indramayu News Center</p>
               </div>
             </div>
             <p className="text-xs leading-relaxed text-zinc-400">
-              Pusat publikasi berita resmi, agenda pembangunan, dan layanan keterbukaan informasi publik Pemerintah Kabupaten Indramayu.
+              Pusat publikasi berita resmi, agenda pembangunan, dan keterbukaan informasi publik Indramayu News Center.
             </p>
             <div className="pt-2 flex items-center gap-2 text-xs text-zinc-400">
               <Shield className="w-4 h-4 text-white" />
@@ -95,7 +95,7 @@ export const Footer: React.FC = () => {
 
           {/* Col 4: Kontak & Kantor */}
           <div className="space-y-3">
-            <h4 className="text-white font-bold text-xs uppercase tracking-wider">Kontak Instansi</h4>
+            <h4 className="text-white font-bold text-xs uppercase tracking-wider">Kontak Redaksi</h4>
             <ul className="space-y-2.5 text-xs">
               <li className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-zinc-400 flex-shrink-0 mt-0.5" />
@@ -103,22 +103,22 @@ export const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-zinc-400 flex-shrink-0" />
-                <span>(0234) 272-xxx / Call Center 112</span>
+                <span>(0234) 272-xxx / Redaksi 112</span>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-zinc-400 flex-shrink-0" />
-                <span>diskominfo@indramayukab.go.id</span>
+                <span>redaksi@indramayunewscenter.id</span>
               </li>
               <li className="flex items-center gap-2">
                 <Globe className="w-4 h-4 text-zinc-400 flex-shrink-0" />
-                <span>www.indramayukab.go.id</span>
+                <span>www.indramayunewscenter.id</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="mt-12 pt-8 border-t border-zinc-900 flex flex-col sm:flex-row items-center justify-between text-xs gap-4">
-          <p>© {new Date().getFullYear()} Dinas Komunikasi dan Informatika Kabupaten Indramayu.</p>
+          <p>© {new Date().getFullYear()} Indramayu News Center. Seluruh hak cipta dilindungi.</p>
           <p className="flex items-center gap-1 text-zinc-500">
             Edisi Monokrom Minimalis • Next.js & React
           </p>
@@ -127,4 +127,3 @@ export const Footer: React.FC = () => {
     </footer>
   );
 };
-

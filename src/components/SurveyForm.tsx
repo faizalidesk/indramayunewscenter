@@ -91,7 +91,7 @@ export const SurveyForm: React.FC = () => {
             Terima Kasih Atas Partisipasi Anda!
           </h2>
           <p className="text-sm text-zinc-600 leading-relaxed max-w-md mx-auto">
-            Apresiasi dan masukan dari Saudara/i <strong className="text-black">{nama}</strong> sangat berharga untuk terus meningkatkan kualitas layanan dan portal berita Diskominfo Indramayu.
+            Apresiasi dan masukan dari Saudara/i <strong className="text-black">{nama}</strong> sangat berharga untuk terus meningkatkan kualitas layanan dan publikasi informasi Indramayu News Center.
           </p>
         </div>
 

@@ -111,7 +111,7 @@ export default function HomePage() {
               Survei Partisipasi Publik
             </span>
             <h3 className="text-2xl sm:text-3xl font-black leading-tight text-white">
-              Bantu Kami Meningkatkan Kualitas Informasi & Layanan Diskominfo Indramayu
+              Bantu Kami Meningkatkan Kualitas Informasi & Layanan Indramayu News Center
             </h3>
             <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed max-w-2xl mx-auto">
               Ikuti survei kepuasan pengunjung ringkas (10 pertanyaan) untuk memberikan masukan atas transparansi, akurasi pemberitaan, dan kemudahan akses portal.

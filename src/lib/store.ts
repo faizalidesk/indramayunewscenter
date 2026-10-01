@@ -10,7 +10,7 @@ const CURRENT_USER_KEY = 'inc_portal_current_user';
 const REGISTERED_USERS_KEY = 'inc_portal_registered_users';
 
 const DEFAULT_USERS: User[] = [
-  { id: 1, name: 'Faiz Ali', email: 'admin@diskominfo.go.id', role: 'admin' },
+  { id: 1, name: 'Faiz Ali', email: 'admin@indramayunewscenter.id', role: 'admin' },
   { id: 2, name: 'Budi Santoso', email: 'budi@gmail.com', role: 'pengunjung' },
 ];
 
