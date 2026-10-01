@@ -1,30 +1,39 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { MessageSquare, Send, CheckCircle2 } from 'lucide-react';
-import { Komentar } from '@/types';
-import { getStoredKomentar, saveKomentarList } from '@/lib/store';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { MessageSquare, Send, CheckCircle2, LogIn, UserPlus, UserCheck, LogOut } from 'lucide-react';
+import { Komentar, User } from '@/types';
+import { getStoredKomentar, saveKomentarList, getCurrentUser, logoutUser } from '@/lib/store';
 
 interface CommentSectionProps {
   beritaId: number;
 }
 
 export const CommentSection: React.FC<CommentSectionProps> = ({ beritaId }) => {
+  const pathname = usePathname();
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
   const [comments, setComments] = useState<Komentar[]>([]);
-  const [nama, setNama] = useState('');
   const [isi, setIsi] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [successMsg, setSuccessMsg] = useState(false);
 
   useEffect(() => {
+    setCurrentUser(getCurrentUser());
     const all = getStoredKomentar();
     const filtered = all.filter((c) => c.beritaId === beritaId);
     setComments(filtered);
   }, [beritaId]);
 
+  const handleLogout = () => {
+    logoutUser();
+    setCurrentUser(null);
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!nama.trim() || !isi.trim()) return;
+    if (!currentUser || !isi.trim()) return;
 
     setIsSubmitting(true);
 
@@ -32,7 +41,7 @@ export const CommentSection: React.FC<CommentSectionProps> = ({ beritaId }) => {
       const newKomentar: Komentar = {
         id: Date.now(),
         beritaId,
-        nama: nama.trim(),
+        nama: currentUser.name || currentUser.email.split('@')[0],
         isi: isi.trim(),
         createdAt: new Date().toISOString().replace('T', ' ').substring(0, 19),
       };
@@ -42,7 +51,6 @@ export const CommentSection: React.FC<CommentSectionProps> = ({ beritaId }) => {
       saveKomentarList(updated);
 
       setComments((prev) => [newKomentar, ...prev]);
-      setNama('');
       setIsi('');
       setIsSubmitting(false);
       setSuccessMsg(true);
@@ -50,6 +58,8 @@ export const CommentSection: React.FC<CommentSectionProps> = ({ beritaId }) => {
       setTimeout(() => setSuccessMsg(false), 4000);
     }, 400);
   };
+
+  const redirectUrl = encodeURIComponent(pathname || `/berita/${beritaId}`);
 
   return (
     <section className="bg-white rounded-3xl p-6 sm:p-8 border border-zinc-200 shadow-xs mt-10">
@@ -67,58 +77,89 @@ export const CommentSection: React.FC<CommentSectionProps> = ({ beritaId }) => {
         </div>
       </div>
 
-      {/* Form Input Komentar */}
-      <form onSubmit={handleSubmit} className="mb-10 space-y-4 bg-zinc-50 p-5 rounded-2xl border border-zinc-200">
-        <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-800">
-          Tinggalkan Komentar & Pendapat Anda
-        </h4>
-
-        {successMsg && (
-          <div className="flex items-center gap-2 p-3 bg-zinc-900 text-white rounded-xl text-xs font-medium border border-zinc-800 animate-in fade-in">
-            <CheckCircle2 className="w-4 h-4 text-zinc-300 flex-shrink-0" />
-            <span>Komentar Anda berhasil dipublikasikan! Terima kasih atas aspirasi Anda.</span>
+      {/* Form or Login Prompt */}
+      {currentUser ? (
+        <form onSubmit={handleSubmit} className="mb-10 space-y-4 bg-zinc-50 p-5 rounded-2xl border border-zinc-200">
+          <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-zinc-200">
+            <div className="flex items-center gap-2">
+              <div className="w-7 h-7 rounded-full bg-black text-white flex items-center justify-center font-bold text-xs">
+                {currentUser.name ? currentUser.name.charAt(0).toUpperCase() : 'U'}
+              </div>
+              <div className="text-xs">
+                <span className="text-zinc-500">Masuk sebagai: </span>
+                <span className="font-bold text-zinc-900">{currentUser.name}</span>
+                <span className="text-zinc-400 ml-1.5 font-mono text-[11px]">({currentUser.email})</span>
+              </div>
+            </div>
+            <button
+              type="button"
+              onClick={handleLogout}
+              className="text-[11px] text-zinc-500 hover:text-black font-semibold flex items-center gap-1 transition"
+            >
+              <LogOut className="w-3 h-3" />
+              Keluar
+            </button>
           </div>
-        )}
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {successMsg && (
+            <div className="flex items-center gap-2 p-3 bg-zinc-900 text-white rounded-xl text-xs font-medium border border-zinc-800 animate-in fade-in">
+              <CheckCircle2 className="w-4 h-4 text-zinc-300 flex-shrink-0" />
+              <span>Komentar Anda berhasil dipublikasikan! Terima kasih atas aspirasi Anda.</span>
+            </div>
+          )}
+
           <div>
             <label className="block text-xs font-bold text-zinc-800 mb-1">
-              Nama Lengkap <span className="text-black">*</span>
+              Tulis Komentar & Opini Anda <span className="text-black">*</span>
             </label>
-            <input
-              type="text"
+            <textarea
               required
-              value={nama}
-              onChange={(e) => setNama(e.target.value)}
-              placeholder="Contoh: Budi Gunawan"
+              rows={3}
+              value={isi}
+              onChange={(e) => setIsi(e.target.value)}
+              placeholder="Tuliskan tanggapan yang santun, objektif, dan beretika..."
               className="w-full px-3.5 py-2.5 bg-white border border-zinc-300 rounded-xl text-xs sm:text-sm text-zinc-900 focus:ring-2 focus:ring-black focus:border-black focus:outline-none transition"
             />
           </div>
-        </div>
 
-        <div>
-          <label className="block text-xs font-bold text-zinc-800 mb-1">
-            Isi Komentar / Tanggapan <span className="text-black">*</span>
-          </label>
-          <textarea
-            required
-            rows={3}
-            value={isi}
-            onChange={(e) => setIsi(e.target.value)}
-            placeholder="Tuliskan komentar yang sopan, konstruktif, dan relevan..."
-            className="w-full px-3.5 py-2.5 bg-white border border-zinc-300 rounded-xl text-xs sm:text-sm text-zinc-900 focus:ring-2 focus:ring-black focus:border-black focus:outline-none transition"
-          />
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-black hover:bg-zinc-800 text-white text-xs sm:text-sm font-bold rounded-xl shadow-xs transition cursor-pointer disabled:opacity-50"
+          >
+            <Send className="w-3.5 h-3.5" />
+            <span>{isSubmitting ? 'Mengirim Komentar...' : 'Kirim Komentar'}</span>
+          </button>
+        </form>
+      ) : (
+        <div className="mb-10 bg-zinc-50 p-6 sm:p-8 rounded-2xl border border-zinc-200 text-center space-y-4">
+          <div className="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center mx-auto shadow-sm">
+            <LogIn className="w-6 h-6" />
+          </div>
+          <div className="max-w-md mx-auto space-y-1.5">
+            <h4 className="text-base font-black text-black">Masuk untuk Berkomentar</h4>
+            <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed">
+              Anda harus masuk ke akun terlebih dahulu sebelum dapat memberikan tanggapan atau menyampaikan aspirasi pada berita ini.
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+            <Link
+              href={`/login?redirect=${redirectUrl}`}
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-black hover:bg-zinc-800 text-white text-xs sm:text-sm font-bold rounded-xl shadow-sm transition"
+            >
+              <LogIn className="w-4 h-4" />
+              <span>Masuk Akun</span>
+            </Link>
+            <Link
+              href={`/register?redirect=${redirectUrl}`}
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white hover:bg-zinc-100 text-zinc-900 border border-zinc-300 text-xs sm:text-sm font-bold rounded-xl transition"
+            >
+              <UserPlus className="w-4 h-4 text-zinc-600" />
+              <span>Daftar Akun Baru</span>
+            </Link>
+          </div>
         </div>
-
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className="inline-flex items-center gap-2 px-5 py-2.5 bg-black hover:bg-zinc-800 text-white text-xs sm:text-sm font-bold rounded-xl shadow-xs transition cursor-pointer disabled:opacity-50"
-        >
-          <Send className="w-3.5 h-3.5" />
-          <span>{isSubmitting ? 'Mengirim...' : 'Kirim Komentar'}</span>
-        </button>
-      </form>
+      )}
 
       {/* List Komentar */}
       <div className="space-y-4">
@@ -157,4 +198,5 @@ export const CommentSection: React.FC<CommentSectionProps> = ({ beritaId }) => {
     </section>
   );
 };
+
 

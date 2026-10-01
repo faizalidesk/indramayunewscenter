@@ -1,9 +1,11 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Search, Menu, X, ShieldCheck, Newspaper, BarChart3, Home } from 'lucide-react';
+import { Search, Menu, X, ShieldCheck, Newspaper, BarChart3, Home, LogIn, LogOut, User as UserIcon } from 'lucide-react';
+import { User } from '@/types';
+import { getCurrentUser, logoutUser } from '@/lib/store';
 
 interface NavbarProps {
   onSearch?: (query: string) => void;
@@ -13,11 +15,21 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ onSearch, searchQuery = '' }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState(searchQuery);
+  const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    setUser(getCurrentUser());
+  }, []);
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value;
     setQuery(val);
     if (onSearch) onSearch(val);
+  };
+
+  const handleLogout = () => {
+    logoutUser();
+    setUser(null);
   };
 
   return (
@@ -109,13 +121,49 @@ export const Navbar: React.FC<NavbarProps> = ({ onSearch, searchQuery = '' }) =>
             
             <div className="h-5 w-px bg-zinc-200 mx-2" />
 
-            <Link
-              href="/admin"
-              className="px-4 py-2 rounded-xl bg-black text-white hover:bg-zinc-800 flex items-center gap-1.5 text-xs font-bold transition shadow-xs"
-            >
-              <ShieldCheck className="w-4 h-4 text-zinc-300" />
-              <span>Admin Panel</span>
-            </Link>
+            {user ? (
+              <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-zinc-100 border border-zinc-200 text-xs">
+                  <div className="w-5 h-5 rounded-full bg-black text-white flex items-center justify-center font-bold text-[10px]">
+                    {user.name.charAt(0).toUpperCase()}
+                  </div>
+                  <span className="font-bold text-zinc-800 max-w-[100px] truncate">{user.name}</span>
+                </div>
+                {user.role === 'admin' && (
+                  <Link
+                    href="/admin"
+                    className="px-3 py-2 rounded-xl bg-black text-white hover:bg-zinc-800 flex items-center gap-1.5 text-xs font-bold transition"
+                  >
+                    <ShieldCheck className="w-4 h-4 text-zinc-300" />
+                    <span>Admin</span>
+                  </Link>
+                )}
+                <button
+                  onClick={handleLogout}
+                  title="Keluar akun"
+                  className="p-2 rounded-xl text-zinc-500 hover:text-black hover:bg-zinc-100 transition"
+                >
+                  <LogOut className="w-4 h-4" />
+                </button>
+              </div>
+            ) : (
+              <div className="flex items-center gap-1.5">
+                <Link
+                  href="/login"
+                  className="px-3.5 py-2 rounded-xl hover:bg-zinc-100 text-zinc-800 hover:text-black flex items-center gap-1.5 text-xs font-bold transition"
+                >
+                  <LogIn className="w-4 h-4" />
+                  <span>Masuk</span>
+                </Link>
+                <Link
+                  href="/admin"
+                  className="px-3.5 py-2 rounded-xl bg-black text-white hover:bg-zinc-800 flex items-center gap-1.5 text-xs font-bold transition shadow-xs"
+                >
+                  <ShieldCheck className="w-4 h-4 text-zinc-300" />
+                  <span>Admin</span>
+                </Link>
+              </div>
+            )}
           </nav>
 
           {/* Mobile Menu Button */}
@@ -166,16 +214,53 @@ export const Navbar: React.FC<NavbarProps> = ({ onSearch, searchQuery = '' }) =>
           >
             Survei Kepuasan Pengunjung
           </Link>
-          <Link
-            href="/admin"
-            onClick={() => setIsOpen(false)}
-            className="block px-3 py-2.5 rounded-xl bg-black text-white font-bold text-center text-sm"
-          >
-            Admin Dashboard
-          </Link>
+
+          {user ? (
+            <div className="pt-2 border-t border-zinc-100 space-y-2">
+              <div className="flex items-center justify-between px-3 py-2 bg-zinc-50 rounded-xl">
+                <span className="text-xs font-bold text-zinc-900">{user.name}</span>
+                <button
+                  onClick={() => {
+                    handleLogout();
+                    setIsOpen(false);
+                  }}
+                  className="text-xs text-zinc-500 hover:text-black font-semibold"
+                >
+                  Keluar
+                </button>
+              </div>
+              {user.role === 'admin' && (
+                <Link
+                  href="/admin"
+                  onClick={() => setIsOpen(false)}
+                  className="block px-3 py-2.5 rounded-xl bg-black text-white font-bold text-center text-sm"
+                >
+                  Admin Dashboard
+                </Link>
+              )}
+            </div>
+          ) : (
+            <div className="pt-2 border-t border-zinc-100 grid grid-cols-2 gap-2">
+              <Link
+                href="/login"
+                onClick={() => setIsOpen(false)}
+                className="block px-3 py-2.5 rounded-xl border border-zinc-300 text-zinc-900 font-bold text-center text-xs"
+              >
+                Masuk
+              </Link>
+              <Link
+                href="/admin"
+                onClick={() => setIsOpen(false)}
+                className="block px-3 py-2.5 rounded-xl bg-black text-white font-bold text-center text-xs"
+              >
+                Admin
+              </Link>
+            </div>
+          )}
         </div>
       )}
     </header>
   );
 };
+
 
