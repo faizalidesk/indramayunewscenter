@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌐 INC PORTAL 2.0 (Indramayu News Center) — Vercel Native
 
-## Getting Started
+Portal Publikasi Berita Resmi, Interaksi Komentar, dan Survei Kepuasan Pengunjung **Diskominfo Kabupaten Indramayu**, didesain ulang dari **Laravel 10** menjadi **Next.js (App Router, TypeScript, Tailwind CSS, Chart.js)** yang siap di-deploy secara instan ke **Vercel**.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ✨ Fitur Utama
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 🏛️ Portal Publik (Pengunjung & Warga)
+- **Berita Utama & Spotlight**: Tampilan hero modern dengan breaking news banner & trending list.
+- **Katalog & Filter Kategori**: Filter instan berdasarkan topik (*Pendidikan, Teknologi, Pemerintahan, Kesehatan, Sosial, Layanan Publik*) serta pencarian cepat.
+- **Tampilan Artikel & Detail**: Layout baca bersih, sharing link, hitung estimasi baca, dan counter pembaca.
+- **Kolom Komentar Interaktif**: Partisipasi publik dalam memberikan tanggapan secara real-time.
+- **Survei Kepuasan 10 Indikator**: Formulir survei interaktif evaluasi layanan informasi publik dengan feedback animasi confetti.
+- **Autentikasi Pengunjung**: Login dan registrasi responsif untuk pembaca.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 🛡️ Panel Administrator (`/admin`)
+- **Dashboard Metrik**: Total berita terbit, total pembaca, total komentar, dan jumlah responden survei.
+- **Analisis Visual Survei**: Grafik Bar Chart & Donut Chart (Chart.js) untuk persentase kepuasan tiap pertanyaan Q1 - Q10.
+- **Kelola Berita (CRUD)**: Tabel manajemen berita dengan filter status (*Published/Pending/Draft*), fitur hapus, serta form tulis berita baru dengan preset gambar.
+- **Moderasi Komentar**: Monitoring dan penghapusan komentar spam dari pengguna.
+- **Rekap Responden**: Tabel lengkap rincian respon survei masyarakat.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🚀 Cara Menjalankan Secara Lokal
 
-To learn more about Next.js, take a look at the following resources:
+1. Masuk ke direktori proyek:
+   ```bash
+   cd websiteinc-next
+   ```
+2. Pastikan dependensi terpasang:
+   ```bash
+   npm install
+   ```
+3. Jalankan server development:
+   ```bash
+   npm run dev
+   ```
+4. Buka browser di [http://localhost:3000](http://localhost:3000).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## ☁️ Panduan Deploy ke Vercel
 
-## Deploy on Vercel
+1. **Push ke GitHub / Git Repository**:
+   ```bash
+   git add .
+   git commit -m "feat: complete redesign of Diskominfo news portal"
+   git push origin main
+   ```
+2. **Import ke Vercel**:
+   - Buka [vercel.com](https://vercel.com) dan login.
+   - Klik **"Add New"** > **"Project"**.
+   - Pilih repository GitHub Anda, atur root directory ke `websiteinc-next` (atau root folder).
+   - Klik **Deploy**.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Website akan langsung online dengan domain otomatis `*.vercel.app` dalam hitungan detik!
