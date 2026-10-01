@@ -8,10 +8,8 @@ import { AdminSidebar } from '@/components/AdminSidebar';
 import { Berita } from '@/types';
 import { getStoredBerita, saveBeritaList } from '@/lib/store';
 import {
-  PlusCircle,
   ArrowLeft,
   Save,
-  Image as ImageIcon,
   CheckCircle2,
   Sparkles,
 } from 'lucide-react';
@@ -78,38 +76,38 @@ export default function TambahBeritaPage() {
   };
 
   return (
-    <div className="min-h-screen flex bg-slate-900 text-slate-100 font-sans">
+    <div className="min-h-screen flex bg-black text-white font-sans selection:bg-black selection:text-white">
       <AdminSidebar />
 
-      <main className="flex-1 bg-slate-50 text-slate-900 overflow-y-auto p-6 sm:p-10">
+      <main className="flex-1 bg-zinc-50 text-zinc-950 overflow-y-auto p-6 sm:p-10">
         {/* Header */}
         <div className="mb-6 flex items-center justify-between">
           <Link
             href="/admin/berita"
-            className="inline-flex items-center gap-2 text-xs font-semibold text-slate-600 hover:text-blue-600 transition"
+            className="inline-flex items-center gap-2 text-xs font-bold text-zinc-600 hover:text-black transition"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Kembali ke Daftar Berita</span>
           </Link>
         </div>
 
-        <div className="max-w-4xl bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm">
-          <div className="pb-6 border-b border-slate-100 mb-8">
-            <div className="flex items-center gap-2 text-blue-600 text-xs font-bold uppercase tracking-wider mb-1">
-              <Sparkles className="w-4 h-4" />
+        <div className="max-w-4xl bg-white rounded-3xl p-6 sm:p-10 border border-zinc-200 shadow-sm">
+          <div className="pb-6 border-b border-zinc-100 mb-8">
+            <div className="flex items-center gap-2 text-zinc-800 text-xs font-black uppercase tracking-wider mb-1">
+              <Sparkles className="w-4 h-4 text-black" />
               <span>Publikasi Baru</span>
             </div>
-            <h1 className="text-2xl font-extrabold text-slate-900">
+            <h1 className="text-2xl font-black text-black">
               Tulis & Terbitkan Berita Baru
             </h1>
-            <p className="text-xs text-slate-500 mt-1">
+            <p className="text-xs text-zinc-500 mt-1">
               Lengkapi informasi artikel berikut untuk ditayangkan pada portal publik Diskominfo.
             </p>
           </div>
 
           {success && (
-            <div className="mb-6 p-4 bg-emerald-50 border border-emerald-200 text-emerald-700 rounded-2xl text-xs font-semibold flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+            <div className="mb-6 p-4 bg-zinc-900 border border-zinc-800 text-white rounded-2xl text-xs font-semibold flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-zinc-300" />
               <span>Berita berhasil diterbitkan! Mengalihkan ke halaman daftar...</span>
             </div>
           )}
@@ -117,8 +115,8 @@ export default function TambahBeritaPage() {
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Judul Berita */}
             <div>
-              <label className="block text-xs font-bold text-slate-800 mb-1.5">
-                Judul Berita / Tajuk Utama <span className="text-rose-500">*</span>
+              <label className="block text-xs font-bold text-zinc-900 mb-1.5">
+                Judul Berita / Tajuk Utama <span className="text-black">*</span>
               </label>
               <input
                 type="text"
@@ -126,20 +124,20 @@ export default function TambahBeritaPage() {
                 value={judul}
                 onChange={(e) => setJudul(e.target.value)}
                 placeholder="Masukkan judul berita yang menarik dan informatif..."
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm font-semibold text-slate-900 focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none transition"
+                className="w-full px-4 py-3 bg-zinc-50 border border-zinc-300 rounded-xl text-xs sm:text-sm font-bold text-zinc-900 focus:bg-white focus:ring-2 focus:ring-black focus:border-black focus:outline-none transition"
               />
             </div>
 
             {/* Grid 2 Kolom: Kategori & Status */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-bold text-slate-800 mb-1.5">
-                  Kategori Berita <span className="text-rose-500">*</span>
+                <label className="block text-xs font-bold text-zinc-900 mb-1.5">
+                  Kategori Berita <span className="text-black">*</span>
                 </label>
                 <select
                   value={kategori}
                   onChange={(e) => setKategori(e.target.value)}
-                  className="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm font-medium text-slate-800 focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none transition"
+                  className="w-full px-4 py-2.5 bg-zinc-50 border border-zinc-300 rounded-xl text-xs sm:text-sm font-semibold text-zinc-800 focus:bg-white focus:ring-2 focus:ring-black focus:outline-none transition"
                 >
                   <option value="Teknologi">Teknologi</option>
                   <option value="Pendidikan">Pendidikan</option>
@@ -151,13 +149,13 @@ export default function TambahBeritaPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-800 mb-1.5">
+                <label className="block text-xs font-bold text-zinc-900 mb-1.5">
                   Status Penayangan
                 </label>
                 <select
                   value={status}
                   onChange={(e) => setStatus(e.target.value as any)}
-                  className="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm font-medium text-slate-800 focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none transition"
+                  className="w-full px-4 py-2.5 bg-zinc-50 border border-zinc-300 rounded-xl text-xs sm:text-sm font-semibold text-zinc-800 focus:bg-white focus:ring-2 focus:ring-black focus:outline-none transition"
                 >
                   <option value="Published">Published (Langsung Terbit)</option>
                   <option value="Pending">Pending (Menunggu Persetujuan)</option>
@@ -169,33 +167,33 @@ export default function TambahBeritaPage() {
             {/* Grid 2 Kolom: Instansi & Penulis */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-bold text-slate-800 mb-1.5">
+                <label className="block text-xs font-bold text-zinc-900 mb-1.5">
                   Instansi / Sumber Rilis
                 </label>
                 <input
                   type="text"
                   value={instansi}
                   onChange={(e) => setInstansi(e.target.value)}
-                  className="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm font-medium text-slate-800 focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none transition"
+                  className="w-full px-4 py-2.5 bg-zinc-50 border border-zinc-300 rounded-xl text-xs sm:text-sm font-medium text-zinc-800 focus:bg-white focus:ring-2 focus:ring-black focus:outline-none transition"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-800 mb-1.5">
+                <label className="block text-xs font-bold text-zinc-900 mb-1.5">
                   Nama Penulis / Redaktur
                 </label>
                 <input
                   type="text"
                   value={pembuat}
                   onChange={(e) => setPembuat(e.target.value)}
-                  className="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm font-medium text-slate-800 focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none transition"
+                  className="w-full px-4 py-2.5 bg-zinc-50 border border-zinc-300 rounded-xl text-xs sm:text-sm font-medium text-zinc-800 focus:bg-white focus:ring-2 focus:ring-black focus:outline-none transition"
                 />
               </div>
             </div>
 
             {/* Pilihan Gambar Thumbnail */}
             <div>
-              <label className="block text-xs font-bold text-slate-800 mb-2">
+              <label className="block text-xs font-bold text-zinc-900 mb-2">
                 Pilih Gambar Sampul Artikel
               </label>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-3">
@@ -206,13 +204,13 @@ export default function TambahBeritaPage() {
                       key={img.path}
                       type="button"
                       onClick={() => setGambar(img.path)}
-                      className={`relative h-24 rounded-xl overflow-hidden border-2 transition cursor-pointer text-left ${
-                        isChosen ? 'border-blue-600 ring-2 ring-blue-600/30' : 'border-slate-200 hover:border-slate-300'
+                      className={`relative h-24 rounded-2xl overflow-hidden border-2 transition cursor-pointer text-left ${
+                        isChosen ? 'border-black ring-2 ring-black/20' : 'border-zinc-200 hover:border-zinc-400'
                       }`}
                     >
                       <Image src={img.path} alt={img.label} fill className="object-cover" sizes="150px" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-2">
-                        <span className="text-[10px] text-white font-semibold leading-tight line-clamp-1">
+                        <span className="text-[10px] text-white font-bold leading-tight line-clamp-1">
                           {img.label}
                         </span>
                       </div>
@@ -227,29 +225,29 @@ export default function TambahBeritaPage() {
                   value={gambar}
                   onChange={(e) => setGambar(e.target.value)}
                   placeholder="Atau masukkan URL / path gambar..."
-                  className="w-full px-3.5 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-800 focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none transition"
+                  className="w-full px-3.5 py-2.5 bg-zinc-50 border border-zinc-300 rounded-xl text-xs text-zinc-800 focus:bg-white focus:ring-2 focus:ring-black focus:outline-none transition"
                 />
               </div>
             </div>
 
             {/* Checkbox Berita Utama */}
-            <div className="flex items-center gap-2.5 p-3.5 bg-amber-50 rounded-2xl border border-amber-200">
+            <div className="flex items-center gap-2.5 p-3.5 bg-zinc-100 rounded-2xl border border-zinc-200">
               <input
                 type="checkbox"
                 id="isUtama"
                 checked={isUtama}
                 onChange={(e) => setIsUtama(e.target.checked)}
-                className="w-4 h-4 text-blue-600 rounded border-slate-300 focus:ring-blue-500 cursor-pointer"
+                className="w-4 h-4 text-black rounded border-zinc-300 focus:ring-black cursor-pointer"
               />
-              <label htmlFor="isUtama" className="text-xs font-bold text-amber-900 cursor-pointer">
+              <label htmlFor="isUtama" className="text-xs font-bold text-black cursor-pointer">
                 Jadikan sebagai Berita Utama (Hero Spotlight di Halaman Depan)
               </label>
             </div>
 
             {/* Isi Artikel */}
             <div>
-              <label className="block text-xs font-bold text-slate-800 mb-1.5">
-                Konten Lengkap Berita <span className="text-rose-500">*</span>
+              <label className="block text-xs font-bold text-zinc-900 mb-1.5">
+                Konten Lengkap Berita <span className="text-black">*</span>
               </label>
               <textarea
                 required
@@ -257,22 +255,22 @@ export default function TambahBeritaPage() {
                 value={isi}
                 onChange={(e) => setIsi(e.target.value)}
                 placeholder="Tuliskan isi berita secara lengkap di sini. Gunakan baris baru untuk memisahkan paragraf..."
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-800 leading-relaxed focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none transition"
+                className="w-full px-4 py-3 bg-zinc-50 border border-zinc-300 rounded-xl text-xs sm:text-sm text-zinc-900 leading-relaxed focus:bg-white focus:ring-2 focus:ring-black focus:outline-none transition"
               />
             </div>
 
             {/* Submit Button */}
-            <div className="pt-4 border-t border-slate-100 flex items-center justify-end gap-3">
+            <div className="pt-4 border-t border-zinc-100 flex items-center justify-end gap-3">
               <Link
                 href="/admin/berita"
-                className="px-5 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs sm:text-sm font-semibold rounded-xl transition"
+                className="px-5 py-2.5 bg-zinc-100 hover:bg-zinc-200 text-zinc-800 text-xs sm:text-sm font-bold rounded-xl transition border border-zinc-200"
               >
                 Batal
               </Link>
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="inline-flex items-center gap-2 px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-bold rounded-xl shadow-md shadow-blue-500/20 transition cursor-pointer disabled:opacity-50"
+                className="inline-flex items-center gap-2 px-6 py-2.5 bg-black hover:bg-zinc-800 text-white text-xs sm:text-sm font-black rounded-xl shadow-md transition cursor-pointer disabled:opacity-50"
               >
                 <Save className="w-4 h-4" />
                 <span>{isSubmitting ? 'Menerbitkan...' : 'Terbitkan Artikel'}</span>
@@ -284,3 +282,4 @@ export default function TambahBeritaPage() {
     </div>
   );
 }
+

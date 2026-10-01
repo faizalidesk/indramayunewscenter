@@ -29,21 +29,21 @@ export default function BeritaCatalogPage() {
   });
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans">
+    <div className="min-h-screen flex flex-col bg-zinc-50 text-zinc-950 font-sans">
       <Navbar onSearch={(q) => setSearchQuery(q)} searchQuery={searchQuery} />
 
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Page Header */}
-        <div className="bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white rounded-3xl p-8 sm:p-10 mb-8 shadow-lg">
+        <div className="bg-black text-white rounded-3xl p-8 sm:p-10 mb-8 border border-zinc-800 shadow-xl">
           <div className="max-w-2xl space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-semibold border border-blue-400/20">
-              <Newspaper className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-white text-black text-xs font-black uppercase tracking-wider">
+              <Newspaper className="w-3.5 h-3.5 text-black" />
               <span>Arsip Publikasi & Berita Resmi</span>
             </div>
-            <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight">
+            <h1 className="text-2xl sm:text-4xl font-black tracking-tight text-white">
               Katalog Informasi Indramayu
             </h1>
-            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
               Jelajahi seluruh rilis berita, dokumentasi kegiatan, transparansi kebijakan, dan agenda pemerintah daerah.
             </p>
           </div>
@@ -57,14 +57,14 @@ export default function BeritaCatalogPage() {
           />
 
           <div className="flex items-center gap-2 self-end sm:self-center">
-            <span className="text-xs text-slate-500 font-medium">
+            <span className="text-xs text-zinc-500 font-bold">
               Menampilkan {filtered.length} artikel
             </span>
-            <div className="flex items-center bg-white border border-slate-200 rounded-xl p-1 shadow-xs">
+            <div className="flex items-center bg-white border border-zinc-200 rounded-xl p-1 shadow-xs">
               <button
                 onClick={() => setLayoutMode('grid')}
                 className={`p-1.5 rounded-lg transition cursor-pointer ${
-                  layoutMode === 'grid' ? 'bg-blue-600 text-white' : 'text-slate-500 hover:text-slate-900'
+                  layoutMode === 'grid' ? 'bg-black text-white' : 'text-zinc-500 hover:text-black'
                 }`}
                 title="Tampilan Kotak (Grid)"
               >
@@ -73,7 +73,7 @@ export default function BeritaCatalogPage() {
               <button
                 onClick={() => setLayoutMode('horizontal')}
                 className={`p-1.5 rounded-lg transition cursor-pointer ${
-                  layoutMode === 'horizontal' ? 'bg-blue-600 text-white' : 'text-slate-500 hover:text-slate-900'
+                  layoutMode === 'horizontal' ? 'bg-black text-white' : 'text-zinc-500 hover:text-black'
                 }`}
                 title="Tampilan Baris (List)"
               >
@@ -85,12 +85,12 @@ export default function BeritaCatalogPage() {
 
         {/* News List */}
         {filtered.length === 0 ? (
-          <div className="text-center py-20 bg-white rounded-3xl border border-slate-200 p-8">
-            <Search className="w-12 h-12 text-slate-300 mx-auto mb-3" />
-            <p className="text-slate-600 font-semibold text-sm">
+          <div className="text-center py-20 bg-white rounded-3xl border border-zinc-200 p-8">
+            <Search className="w-12 h-12 text-zinc-300 mx-auto mb-3" />
+            <p className="text-zinc-700 font-bold text-sm">
               Tidak ada berita yang ditemukan.
             </p>
-            <p className="text-xs text-slate-400 mt-1">
+            <p className="text-xs text-zinc-400 mt-1">
               Coba cari dengan kata kunci lain atau pilih kategori yang berbeda.
             </p>
           </div>
@@ -113,3 +113,4 @@ export default function BeritaCatalogPage() {
     </div>
   );
 }
+

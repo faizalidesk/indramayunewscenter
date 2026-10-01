@@ -31,7 +31,7 @@ interface SurveyChartsProps {
 export const SurveyCharts: React.FC<SurveyChartsProps> = ({ surveiData }) => {
   if (!surveiData || surveiData.length === 0) {
     return (
-      <div className="p-8 text-center text-slate-400 bg-white rounded-2xl border border-slate-200">
+      <div className="p-8 text-center text-zinc-400 bg-white rounded-3xl border border-zinc-200">
         Belum ada data survei yang masuk untuk dianalisis.
       </div>
     );
@@ -64,14 +64,14 @@ export const SurveyCharts: React.FC<SurveyChartsProps> = ({ surveiData }) => {
       {
         label: 'Setuju (%)',
         data: questionScores.map((s) => s.percentage),
-        backgroundColor: 'rgba(37, 99, 235, 0.85)',
-        borderRadius: 8,
+        backgroundColor: '#18181b',
+        borderRadius: 6,
       },
       {
         label: 'Tidak Setuju (%)',
         data: questionScores.map((s) => 100 - s.percentage),
-        backgroundColor: 'rgba(239, 68, 68, 0.75)',
-        borderRadius: 8,
+        backgroundColor: '#d4d4d8',
+        borderRadius: 6,
       },
     ],
   };
@@ -82,6 +82,10 @@ export const SurveyCharts: React.FC<SurveyChartsProps> = ({ surveiData }) => {
     plugins: {
       legend: {
         position: 'top' as const,
+        labels: {
+          color: '#18181b',
+          font: { weight: 'bold' as const },
+        },
       },
       tooltip: {
         callbacks: {
@@ -93,10 +97,16 @@ export const SurveyCharts: React.FC<SurveyChartsProps> = ({ surveiData }) => {
       },
     },
     scales: {
+      x: {
+        grid: { display: false },
+        ticks: { color: '#71717a' },
+      },
       y: {
         beginAtZero: true,
         max: 100,
+        grid: { color: '#f4f4f5' },
         ticks: {
+          color: '#71717a',
           callback: (value: any) => `${value}%`,
         },
       },
@@ -108,9 +118,9 @@ export const SurveyCharts: React.FC<SurveyChartsProps> = ({ surveiData }) => {
     datasets: [
       {
         data: [overallAvgPercentage, 100 - overallAvgPercentage],
-        backgroundColor: ['rgba(16, 185, 129, 0.9)', 'rgba(244, 63, 94, 0.85)'],
-        borderColor: ['#10b981', '#f43f5e'],
-        borderWidth: 2,
+        backgroundColor: ['#18181b', '#d4d4d8'],
+        borderColor: ['#000000', '#e4e4e7'],
+        borderWidth: 1.5,
       },
     ],
   };
@@ -118,10 +128,14 @@ export const SurveyCharts: React.FC<SurveyChartsProps> = ({ surveiData }) => {
   const doughnutOptions = {
     responsive: true,
     maintainAspectRatio: false,
-    cutout: '72%',
+    cutout: '74%',
     plugins: {
       legend: {
         position: 'bottom' as const,
+        labels: {
+          color: '#18181b',
+          font: { size: 11, weight: 'bold' as const },
+        },
       },
     },
   };
@@ -130,49 +144,49 @@ export const SurveyCharts: React.FC<SurveyChartsProps> = ({ surveiData }) => {
     <div className="space-y-6">
       {/* Top metrics row */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-        <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs">
-          <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
+        <div className="bg-white p-6 rounded-3xl border border-zinc-200 shadow-xs">
+          <p className="text-xs font-bold text-zinc-400 uppercase tracking-wider">
             Total Responden
           </p>
-          <p className="text-3xl font-extrabold text-slate-900 mt-2">
+          <p className="text-3xl font-black text-black mt-2">
             {surveiData.length}{' '}
-            <span className="text-xs text-slate-400 font-normal">pengunjung</span>
+            <span className="text-xs text-zinc-400 font-normal">pengunjung</span>
           </p>
         </div>
 
-        <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs">
-          <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
+        <div className="bg-white p-6 rounded-3xl border border-zinc-200 shadow-xs">
+          <p className="text-xs font-bold text-zinc-400 uppercase tracking-wider">
             Indeks Kepuasan Rata-rata
           </p>
           <div className="flex items-baseline gap-2 mt-2">
-            <p className="text-3xl font-extrabold text-emerald-600">{overallAvgPercentage}%</p>
-            <span className="text-xs font-semibold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full">
+            <p className="text-3xl font-black text-black">{overallAvgPercentage}%</p>
+            <span className="text-xs font-black bg-black text-white px-2.5 py-0.5 rounded-full">
               Sangat Baik
             </span>
           </div>
         </div>
 
-        <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs">
-          <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
+        <div className="bg-white p-6 rounded-3xl border border-zinc-200 shadow-xs">
+          <p className="text-xs font-bold text-zinc-400 uppercase tracking-wider">
             Indikator Tertinggi
           </p>
-          <p className="text-sm font-bold text-blue-600 mt-2 line-clamp-1">
+          <p className="text-sm font-black text-zinc-900 mt-2 line-clamp-1">
             Q1 (Akurasi Berita): 100%
           </p>
-          <p className="text-[11px] text-slate-400 mt-0.5">Dinilai paling memuaskan publik</p>
+          <p className="text-[11px] text-zinc-500 mt-0.5">Dinilai paling memuaskan publik</p>
         </div>
       </div>
 
       {/* Chart Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Bar Chart */}
-        <div className="lg:col-span-8 bg-white p-6 rounded-3xl border border-slate-200 shadow-xs">
+        <div className="lg:col-span-8 bg-white p-6 sm:p-8 rounded-3xl border border-zinc-200 shadow-xs">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h3 className="text-sm font-bold text-slate-900">
+              <h3 className="text-sm font-black text-black">
                 Distribusi Kepuasan Tiap Instrumen (Q1 - Q10)
               </h3>
-              <p className="text-xs text-slate-500">Persentase respon Setuju vs Tidak Setuju</p>
+              <p className="text-xs text-zinc-500">Persentase respon Setuju vs Tidak Setuju</p>
             </div>
           </div>
           <div className="h-72">
@@ -181,15 +195,15 @@ export const SurveyCharts: React.FC<SurveyChartsProps> = ({ surveiData }) => {
         </div>
 
         {/* Doughnut Chart */}
-        <div className="lg:col-span-4 bg-white p-6 rounded-3xl border border-slate-200 shadow-xs flex flex-col justify-between">
+        <div className="lg:col-span-4 bg-white p-6 sm:p-8 rounded-3xl border border-zinc-200 shadow-xs flex flex-col justify-between">
           <div>
-            <h3 className="text-sm font-bold text-slate-900 mb-1">Skor Keseluruhan</h3>
-            <p className="text-xs text-slate-500 mb-4">Ringkasan agregat respon</p>
+            <h3 className="text-sm font-black text-black mb-1">Skor Keseluruhan</h3>
+            <p className="text-xs text-zinc-500 mb-4">Ringkasan agregat respon</p>
             <div className="h-56 relative flex items-center justify-center">
               <Doughnut data={doughnutData} options={doughnutOptions} />
               <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                <span className="text-2xl font-black text-slate-800">{overallAvgPercentage}%</span>
-                <span className="text-[10px] text-slate-400 font-bold uppercase">Puas</span>
+                <span className="text-3xl font-black text-black">{overallAvgPercentage}%</span>
+                <span className="text-[10px] text-zinc-500 font-extrabold uppercase tracking-widest">Puas</span>
               </div>
             </div>
           </div>
@@ -198,3 +212,4 @@ export const SurveyCharts: React.FC<SurveyChartsProps> = ({ surveiData }) => {
     </div>
   );
 };
+

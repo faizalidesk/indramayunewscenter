@@ -48,10 +48,10 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
           <button
             key={cat}
             onClick={() => onSelectCategory(cat)}
-            className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-200 cursor-pointer ${
+            className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all duration-200 cursor-pointer ${
               isSelected
-                ? 'bg-blue-600 text-white shadow-md shadow-blue-500/25 ring-2 ring-blue-600/30'
-                : 'bg-white text-slate-700 border border-slate-200 hover:border-slate-300 hover:bg-slate-50'
+                ? 'bg-black text-white shadow-xs ring-2 ring-black'
+                : 'bg-white text-zinc-700 border border-zinc-200 hover:border-black hover:text-black hover:bg-zinc-50'
             }`}
           >
             {getCategoryIcon(cat)}
@@ -62,3 +62,4 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
     </div>
   );
 };
+
