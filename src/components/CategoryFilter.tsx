@@ -48,9 +48,9 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
           <button
             key={cat}
             onClick={() => onSelectCategory(cat)}
-            className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all duration-200 cursor-pointer ${
+            className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-bold whitespace-nowrap transition-all duration-200 cursor-pointer ${
               isSelected
-                ? 'bg-black text-white shadow-xs ring-2 ring-black'
+                ? 'bg-black text-white shadow-xs ring-1 ring-black'
                 : 'bg-white text-zinc-700 border border-zinc-200 hover:border-black hover:text-black hover:bg-zinc-50'
             }`}
           >
@@ -62,4 +62,3 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
     </div>
   );
 };
-

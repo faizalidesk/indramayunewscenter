@@ -11,12 +11,12 @@ export const Footer: React.FC = () => {
           {/* Col 1: Instansi Info */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-zinc-900 border border-zinc-800 rounded-xl p-1.5 flex items-center justify-center">
+              <div className="w-12 h-12 bg-white border border-zinc-800 rounded-2xl p-1 flex items-center justify-center overflow-hidden">
                 <Image
-                  src="/images/logo3.png"
-                  alt="Logo"
-                  width={36}
-                  height={36}
+                  src="/images/logo.png"
+                  alt="Logo Indramayu News Center"
+                  width={44}
+                  height={44}
                   className="object-contain"
                 />
               </div>

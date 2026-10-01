@@ -30,12 +30,12 @@ export const AdminSidebar: React.FC = () => {
       <div className="space-y-6">
         {/* Brand Header */}
         <div className="flex items-center gap-3 px-2 py-3 border-b border-zinc-900">
-          <div className="w-10 h-10 bg-zinc-900 border border-zinc-800 rounded-xl p-1.5 flex items-center justify-center">
+          <div className="w-11 h-11 bg-white border border-zinc-800 rounded-xl p-1 flex items-center justify-center overflow-hidden flex-shrink-0">
             <Image
-              src="/images/logo3.png"
-              alt="Logo"
-              width={36}
-              height={36}
+              src="/images/logo.png"
+              alt="Logo INC"
+              width={40}
+              height={40}
               className="object-contain"
             />
           </div>

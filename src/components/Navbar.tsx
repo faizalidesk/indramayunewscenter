@@ -56,12 +56,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onSearch, searchQuery = '' }) =>
         <div className="flex items-center justify-between h-20">
           {/* Brand Logo */}
           <Link href="/" className="flex items-center gap-3.5 group">
-            <div className="relative w-11 h-11 flex-shrink-0 bg-zinc-100 rounded-xl p-1.5 shadow-xs ring-1 ring-zinc-200 group-hover:ring-black transition">
+            <div className="relative w-12 h-12 flex-shrink-0 bg-white rounded-2xl p-1 shadow-xs ring-1 ring-zinc-200 group-hover:ring-black transition overflow-hidden flex items-center justify-center">
               <Image
-                src="/images/logo3.png"
-                alt="Logo Indramayu"
-                width={44}
-                height={44}
+                src="/images/logo.png"
+                alt="Logo Indramayu News Center"
+                width={48}
+                height={48}
                 className="object-contain w-full h-full"
                 priority
               />
@@ -72,7 +72,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onSearch, searchQuery = '' }) =>
                   INC PORTAL
                 </span>
                 <span className="text-[10px] uppercase font-extrabold bg-black text-white px-1.5 py-0.5 rounded tracking-wider">
-                  2.0
+                  RESMI
                 </span>
               </div>
               <span className="text-[11px] text-zinc-500 font-medium">
